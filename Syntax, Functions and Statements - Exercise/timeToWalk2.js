@@ -5,11 +5,11 @@ function timeToWalk(steps, footprintLength, speedKmH) {
     let speed = speedKmH * 1000 / (60 * 60);
     let timeInSeconds = distance / speed + delay;
 
-    let hours = Math.floor(timeInSeconds / (60 * 60)).toFixed(0).padStart(2, '0');
-    let minutes = Math.floor(timeInSeconds / 60).toFixed(0).padStart(2, '0');
-    let seconds = (timeInSeconds % 60).toFixed(0).padStart(2, '0');
+    let hours = Math.floor(timeInSeconds / (60 * 60));
+    let minutes = Math.floor(timeInSeconds / 60);
+    let seconds = Math.ceil(timeInSeconds % 60);
     
-    console.log(`${hours}:${minutes}:${seconds}`);
+    console.log(`${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`);
 
 }
 
