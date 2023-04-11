@@ -5,12 +5,12 @@ function sameNumbers(number) {
     let compareChar = Number(numberAsString[0]);
     let sum = 0;
 
-    for (const char of numberAsString) {
-
-        if (Number(char) !== compareChar) {
+    for (let char of numberAsString) {
+        char = Number(char);
+        if (char !== compareChar) {
             isSame = false;
         }
-        sum += Number(char);
+        sum += char;
     }
 
     console.log(isSame);
