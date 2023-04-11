@@ -1,7 +1,9 @@
 function cookingByNumbers(number, ...params) {
 
     number = Number(number);
+    
     for (const param of params) {
+
         if (param === 'chop') {
             number /= 2;
         } else if (param === 'dice') {
