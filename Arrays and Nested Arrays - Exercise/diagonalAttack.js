@@ -8,14 +8,8 @@ function diagonalAttack(input) {
 
     let isEqual = diagonalSums(matrix);
 
-    if (isEqual === false) {
+    if (isEqual) {
 
-        for (const line of input) {
-
-            console.log(line);
-        }
-
-    } else {
         for (let i = 0; i < matrix.length; i++) {
 
             for (let j = 0; j < matrix.length; j++) {
@@ -24,16 +18,15 @@ function diagonalAttack(input) {
                     matrix[i][j] = isEqual;
                 }
             }
-        }
+        }        
+    }
 
-        for (const line of matrix) {
+    for (const line of matrix) {
 
-            console.log(line.join(' '));
-        }
+        console.log(line.join(' '));
     }
 
     function diagonalSums(matrix) {
-
         let sum1 = 0;
         let sum2 = 0;
 
