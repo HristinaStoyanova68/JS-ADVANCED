@@ -1,10 +1,6 @@
 function diagonalAttack(input) {
 
-    let matrix = [];
-
-    for (const line of input) {
-        matrix.push(line.split(' ').map(Number));
-    }
+    let matrix = input.map(x => x.split(' ').map(Number));
 
     let isEqual = diagonalSums(matrix);
 
