@@ -5,22 +5,17 @@ function townPopulation(array) {
     while (array.length) {
 
         let [townName, townPopulation] = array.shift().split(' <-> ');
-        townPopulation = Number(townPopulation);
 
         if (!townData.hasOwnProperty(townName)) {
 
-            townData[townName] = townPopulation;
-        } else {
-            townData[townName] += townPopulation;
+            townData[townName] = 0;
         }
+        townData[townName] += Number(townPopulation);
     }
 
-    let entries = Object.entries(townData);
-
-    for (const [townName, townPopulation] of entries) {
-
-        console.log(`${townName} : ${townPopulation}`);
-    }
+    console.log(Object.entries(townData)
+        .map(([townName, townPopulation]) => `${townName} : ${townPopulation}`)
+        .join('\n'));
 }
 
 townPopulation(['Sofia <-> 1200000',
