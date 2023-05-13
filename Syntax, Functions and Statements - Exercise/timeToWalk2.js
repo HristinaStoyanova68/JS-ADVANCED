@@ -1,4 +1,4 @@
-function timeToWalk(steps, footprintLength, speedKmH) {
+function roadRadar2(steps, footprintLength, speedKmH) {
 
     let distance = steps * footprintLength;
     let delay = Math.floor(distance / 500) * 60;
@@ -13,6 +13,6 @@ function timeToWalk(steps, footprintLength, speedKmH) {
 
 }
 
-timeToWalk(4000, 0.60, 5);
+roadRadar2(4000, 0.60, 5);
 console.log('................');
-timeToWalk(2564, 0.70, 5.5);
+roadRadar2(2564, 0.70, 5.5);
