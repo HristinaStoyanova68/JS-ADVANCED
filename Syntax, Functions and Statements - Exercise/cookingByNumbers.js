@@ -22,6 +22,4 @@ function cookingByNumbers(number, ...params) {
 
 cookingByNumbers('32', 'chop', 'chop', 'chop', 'chop', 'chop');
 console.log('.............');
-cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake',
-
-    'fillet');
+cookingByNumbers('9', 'dice', 'spice', 'chop', 'bake', 'fillet');
