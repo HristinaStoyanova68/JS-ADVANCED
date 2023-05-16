@@ -20,13 +20,7 @@ function addAndRemoveElements(commands) {
     }
 }
 
-addAndRemoveElements(['add',
-
-    'add',
-
-    'add',
-
-    'add']);
+addAndRemoveElements(['add', 'add', 'add', 'add']);
 console.log('...........');
 addAndRemoveElements(['add', 'add', 'remove', 'add', 'add']);
 console.log('...........');

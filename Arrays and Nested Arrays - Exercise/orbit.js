@@ -17,6 +17,7 @@ function orbit(array) {
     }
 
     orbit.forEach(x => console.log(x.join(' ')));
+    //console.log(orbitMatrix.map(rows => rows.join(" ")).join("\n"));
 }
 
 orbit([4, 4, 0, 0]);
