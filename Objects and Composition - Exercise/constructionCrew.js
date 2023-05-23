@@ -7,7 +7,7 @@ function contructionCrew(input) {
         worker.levelOfHydrated += neededWaterAmount;
         worker.dizziness = false;
     }
-
+ 
     return worker;
 }
 
