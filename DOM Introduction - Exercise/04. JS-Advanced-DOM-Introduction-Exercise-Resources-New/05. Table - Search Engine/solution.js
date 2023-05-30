@@ -9,7 +9,7 @@ function solve() {
          .getElementById('searchField')
          .value.toLowerCase();
 
-      for (const row of rows) {
+      for (const row of rows) { 
          const rowTextToLower = row.textContent.toLowerCase();
 
          if (rowTextToLower.includes(inputValueToLower)) {
