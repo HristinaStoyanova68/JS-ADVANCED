@@ -12,6 +12,16 @@ function addItem() {
 
     deleteBtn.addEventListener('click', () => newLi.remove());
 
+    //optional confirmation button
+
+    // deleteBtn.addEventListener('click', () =>  {
+    //     const choice = confirm('Are you sure?');
+
+    //     if (choice) {
+    //         newLi.remove();
+    //     }
+    // });
+
     newLi.appendChild(deleteBtn);
 
     //obtain reference to list element
