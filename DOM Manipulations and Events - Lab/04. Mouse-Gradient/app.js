@@ -1,3 +1,14 @@
 function attachGradientEvents() {
-    console.log('TODO:...');
+
+    const gradient = document.getElementById('gradient');
+    gradient.addEventListener('mousemove', onClick);
+
+    function onClick(event) {
+
+        const x = event.offsetX;
+        const percent = Math.floor(x / 300 * 100);
+
+        const result = document.getElementById('result');
+        result.textContent = percent + '%';
+    }
 }
