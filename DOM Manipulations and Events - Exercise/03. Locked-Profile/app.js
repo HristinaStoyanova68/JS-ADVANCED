@@ -31,8 +31,9 @@ function lockedProfile() {
 
         //else enable functionality
         const hiddenFieldElements = event.target.previousElementSibling;
-        //console.log({hiddeenFieldElements});
+        //console.log({hiddenFieldElements});
 
+        //toggling functionality
         if (event.target.textContent === SHOW_MORE) {
             hiddenFieldElements.style.display = 'inline';
             event.target.textContent = HIDE_IT;
