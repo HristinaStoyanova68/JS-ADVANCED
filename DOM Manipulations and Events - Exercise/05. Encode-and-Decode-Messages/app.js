@@ -1,7 +1,7 @@
 function encodeAndDecodeMessages() {
     //capture buttons
     const [encodeBtn, decodeBtn] = [...document.querySelectorAll('main button')];
-    const [senderTextArea, receiverTextArea] = [...document.querySelectorAll('main textarea')];
+    const textContainers = [...document.querySelectorAll('main textarea')];
 
     //attach events
 
@@ -15,21 +15,21 @@ function encodeAndDecodeMessages() {
     }
 
     function prevChar(char) {
-        return String.fromCharCode(char.charCodeAt(0) - 1);
+        return String.fromCharCode(char.charCodeAt() - 1);
     }
 
     function nextChar(char) {
-        return String.fromCharCode(char.charCodeAt(0) + 1);
+        return String.fromCharCode(char.charCodeAt() + 1);
     }
 
     //on click callbacks
     function encodeAndSend(event) {
 
-        receiverTextArea.value = transformText(senderTextArea.value, nextChar);
-        senderTextArea.value = '';
+        textContainers[1].value = transformText(textContainers[0].value, nextChar);
+        textContainers[0].value = '';
     }
 
     function decodeAndRead(event) {
-        receiverTextArea.value = transformText(receiverTextArea.value, prevChar);
+        textContainers[1].value = transformText(textContainers[1].value, prevChar);
     }
 }
