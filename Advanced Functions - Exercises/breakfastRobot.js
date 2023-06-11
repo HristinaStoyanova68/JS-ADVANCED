@@ -70,15 +70,27 @@ function getManager() {
 }
 
 const manager = getManager();
-console.log(manager("prepare turkey 1")); // Success
-console.log(manager("restock protein 10")); // Success
-console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("restock protein 10")); // Success
+// console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("restock carbohydrate 10")); // Success
+// console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("restock fat 10")); // Success
+// console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("restock flavour 10")); // Success
+// console.log(manager("prepare turkey 1")); // Success
+// console.log(manager("report")); //'protein=0 carbohydrate=4 fat=3 flavour=5'
+
+// console.log('..............');
+// const manager = getManager();
+console.log(manager("restock flavour 50 ")); // Success
+console.log(manager("restock carbohydrate 30 ")); // Success
+console.log(manager("prepare lemonade 4 ")); // Success
 console.log(manager("restock carbohydrate 10")); // Success
-console.log(manager("prepare turkey 1")); // Success
-console.log(manager("restock fat 10")); // Success
-console.log(manager("prepare turkey 1")); // Success
 console.log(manager("restock flavour 10")); // Success
-console.log(manager("prepare turkey 1")); // Success
+console.log(manager("prepare apple 1")); // Success
+console.log(manager("restock fat 10")); // Success
+console.log(manager("prepare burger 1")); // Success
 console.log(manager("report")); //'protein=0 carbohydrate=4 fat=3 flavour=5'
 
 
