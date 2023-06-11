@@ -1,8 +1,18 @@
-function functionalSum() {
+function add(number) {
 
-    function add() {
-        
+    let sum = 0;
+    sum += number;
+    
+    function calculate(num) {
+        sum += num;
+        return calculate;
     }
+
+    calculate.toString = () => sum;
+
+    return calculate;
 }
 
-functionalSum(add(1));
+
+console.log(add(1).toString());
+console.log(add(1)(6)(-3).toString());
