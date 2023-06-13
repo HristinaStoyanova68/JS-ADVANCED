@@ -1,6 +1,6 @@
 function requestValidator(obj) {
 
-    const copyObj = { ...obj };
+    //const copyObj = { ...obj };
     const methods = ['GET', 'POST', 'DELETE', 'CONNECT'];
     const versions = ['HTTP/0.9', 'HTTP/1.0', 'HTTP/1.1', 'HTTP/2.0'];
     const regexURI = /^[a-zA-Z.0-9]+$/gm;
