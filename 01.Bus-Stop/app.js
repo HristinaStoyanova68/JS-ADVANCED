@@ -12,6 +12,8 @@ function getInfo() {
     // fetch(url)
     // .then(res => res.json())
     // .then(data => console.log(data))
+
+    //test test
     
     let inputIdElem = document.getElementById('stopId');
 
