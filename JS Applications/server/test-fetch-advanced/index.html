@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>My Phonebook</h1>
+
+    <input type="text" name="person" id="person"/>
+    <input type="text" name="phone" id="phone" />
+    <button id="add-person">Add</button>
+    <button id="load-phonebook">Load</button>
+
+    <ul id="phonebook-list">
+
+    </ul>
+    <script>
+
+        const baseUrl = 'http://localhost:3030/jsonstore';
+        const personNameElement = document.getElementById('person');
+        const phoneElement = document.getElementById('phone');
+        const btnElement = document.getElementById('load-phonebook');
+        const addBtnElement = document.getElementById('add-person');
+        const phonebookListElement = document.getElementById('phonebook-list');
+
+        btnElement.addEventListener('click', () => {
+            fetch(`${baseUrl}/phonebook`)
+                .then(response => response.json())
+                .then(data => {
+                    phonebookListElement.innerHTML = '';
+
+                    Object.values(data)
+                        .forEach(phoneNumber => {
+                            let phoneNumberElement = document.createElement('li');
+                            phoneNumberElement.textContent = 
+                            `${phoneNumber.person}: ${phoneNumber.phone}`;
+                            phonebookListElement.appendChild(phoneNumberElement);
+                        })
+                })
+                .catch((err) => console.log('error'))
+        });
+
+        addBtnElement.addEventListener('click', () => {
+            let person = personNameElement.value;
+            let phone = phoneElement.value;
+
+            fetch(`${baseUrl}/phonebook`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({person,
+                phone})
+            })
+            .then(response => response.json())
+            .then(data => {
+                let phoneNumberElement = document.createElement('li');
+                phoneNumberElement.textContent = 
+                `${data.person}: ${data.phone}`;
+                phonebookListElement.appendChild(phoneNumberElement);
+                //console.log(Object.values(data)[0])
+            })
+            .catch(err => console.log('err'))
+        });
+    </script>
+</body>
+
+</html>
