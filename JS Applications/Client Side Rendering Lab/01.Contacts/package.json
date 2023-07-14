@@ -1,8 +1,8 @@
 {
-  "name": "client-side-rendering-lab",
+  "name": "01.contacts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js", 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
