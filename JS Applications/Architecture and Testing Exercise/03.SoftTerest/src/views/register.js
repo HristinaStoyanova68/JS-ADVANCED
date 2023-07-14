@@ -22,11 +22,13 @@ async function onSubmit(event) {
     let repeatPass = formData.get('repeatPassword').trim();
 
     if (email == '' || password == '') {
-        return alert('All fields are required!');
+        alert('All fields are required!');
+        return form.reset();
     }
 
     if (password != repeatPass) {
-        return alert(`Passwords d'not match!`);
+        alert(`Passwords d'not match!`);
+        return form.reset();
     }
 
     await register(email, password);

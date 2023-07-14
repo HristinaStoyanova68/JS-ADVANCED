@@ -28,9 +28,11 @@ async function loadDetails() {
     const userData = JSON.parse(sessionStorage.getItem('userData'));
 
     if (!userData || userData.id != ownerId) {
-        deleteBtn.style.display = 'none';
+        // deleteBtn.style.display = 'none';
+        deleteBtn.remove();
     } else {
-        deleteBtn.style.display = 'block';
+        // deleteBtn.style.display = 'block';
+        //(section.querySelector('text-center')).appendChild(deleteBtn);
         deleteBtn.addEventListener('click', onDelete);  
     }
 }
