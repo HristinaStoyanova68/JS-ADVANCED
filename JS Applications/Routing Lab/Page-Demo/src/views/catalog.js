@@ -8,7 +8,7 @@ const catalogTemplate = (list) => html`
 `;
 
 const productTemplate = (item) => html`
-<li>${item.make}</li>
+<li><a href="/catalog/${item._id}">${item.make}</a></li>
 `;
 
 export async function catalogPage(ctx) {

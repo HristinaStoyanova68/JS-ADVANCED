@@ -4,15 +4,22 @@ import {homePage} from './views/home.js';
 import { catalogPage } from './views/catalog.js';
 import { aboutPage } from './views/about.js';
 import { loginPage } from './views/login.js';
+import { registerPage } from './views/register.js';
+import { detailsPage } from './views/details.js';
+import { getUserData } from './util.js';
 //import { about, catalog, homePage, productPage } from './views.js';
 
 
 page(addRender);
+page((ctx, next) => {ctx.updateNav = updateNav; next();});
 page('/index.html', '/home');
 page('/home', homePage);
 page('/catalog', catalogPage);
+page('/catalog/:id', detailsPage);
+page('/catalog/:id/edit', () => console.log('yes'));
 page('/about', aboutPage);
 page('/login', loginPage);
+page('/register', registerPage);
 // page('/home', homePage);
 // page('/catalog', catalog);
 // page('/catalog/:productId', productPage);
@@ -20,7 +27,19 @@ page('/login', loginPage);
 // page('/about', about);
 // page('*', () => main.innerHTML = '404 Not Found');
 
+updateNav();
+
 page.start();
+
+function updateNav() {
+    const userData = getUserData();
+
+    if (userData != null) {
+        document.querySelectorAll('.guest').forEach(entry => entry.style.display = 'none');
+    } else {
+        document.querySelectorAll('.guest').forEach(entry => entry.style.display = '');
+    }
+}
 
 
 

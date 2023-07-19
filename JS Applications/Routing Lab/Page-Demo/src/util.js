@@ -12,11 +12,11 @@ export function clearUserData() {
 
 export function createSubmitHandler(callback) {
     return function (event) {
-        event.preventdefault();
+        event.preventDefault();
         const form = event.currentTarget;
         const formData = new FormData(form);
-        const data = Object.entries(formData.entries);
+        const data = Object.fromEntries(formData.entries());
 
         callback(data, form);
-    }
+    };
 }

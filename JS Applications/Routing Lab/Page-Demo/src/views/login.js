@@ -16,7 +16,12 @@ export function loginPage(ctx) {
     ctx.render(loginTemplate(createSubmitHandler(onLogin)));
 
     async function onLogin({email, password}) {
+        if (email == '' || password == '') {
+            return alert('All fields are required!');
+        }
+
         await login(email, password);
+        ctx.updateNav();
         ctx.page.redirect('/home');
     }
 }

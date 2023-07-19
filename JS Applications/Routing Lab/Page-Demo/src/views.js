@@ -12,7 +12,7 @@ export function catalog(ctx) {
 }
 
 export function productPage(ctx) {
-    ctx.console.log(ctx.myValue);
+    //ctx.console.log(ctx.myValue);
     main.show('product page' + ctx.params.productId);
 }
 

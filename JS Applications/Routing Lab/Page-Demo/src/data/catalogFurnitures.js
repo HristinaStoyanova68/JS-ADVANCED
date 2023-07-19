@@ -3,7 +3,16 @@ import { get } from "./api.js";
 
 const endpoints = {
     catalog: '/data/catalog',
+    byId: '/data/catalog/',
 }
 export async function getFurnitures() {
     return get(endpoints.catalog);
+}
+
+export async function getById(id) {
+    return get(endpoints.byId + id);
+}
+
+export async function deleteById(id) {
+    return del(endpoints.byId + id);
 }
