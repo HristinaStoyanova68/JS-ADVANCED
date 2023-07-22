@@ -19,5 +19,6 @@
     "page": "^1.11.6",
     "playwright-chromium": "^1.36.1"
   },
+  "devDependencies": {},
   "description": ""
 }
