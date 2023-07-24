@@ -15,6 +15,9 @@ import { detailsPage } from './views/details.js';
 import { createPage } from './views/create.js';
 import { editPage } from './views/edit.js';
 
+import * as api from './data/applications.js';
+window.api = api
+
 //TODO change render root depending on project HTML structure
 const root = document.getElementById('wrapper');
  
