@@ -2,6 +2,7 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 import { get } from "../data/api.js";
 import { endpoints } from "../utils.js";
 
+
 const homeTemplate = (data) => html`
 <section id="welcome-world">
 <div class="welcome-message">
@@ -12,8 +13,7 @@ const homeTemplate = (data) => html`
 <div id="home-page">
     <h1>Latest Games</h1>
     ${data.length != 0 ? html`
-    ${
-        data.map(game => html`
+    ${data.map(game => html`
         <div class="game">
         <div class="image-wrap">
             <img src=${game.imageUrl}>

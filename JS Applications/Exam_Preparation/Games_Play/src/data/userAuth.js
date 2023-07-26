@@ -1,4 +1,4 @@
-import { get, post } from "./api.js"
+import { get, post } from "./api.js";
 import { deleteUserData, setUserData } from "./session.js";
 
 const endpoints = {
@@ -17,7 +17,7 @@ export async function register(email, password) {
     setUserData(userData);
 }
 
-export async function logout() {
+export function logout() {
     get(endpoints.logout);
     deleteUserData();
 }

@@ -1,6 +1,7 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { register } from "../data/userAuth.js";
-import { createSubmitHandler, endpoints } from "../utils.js";
+import { createSubmitHandler } from "../utils.js";
+
 
 const registerTemplate = (onSubmit) => html`
 <section id="register-page" class="content auth">
@@ -23,7 +24,7 @@ const registerTemplate = (onSubmit) => html`
         </section>
 `;
 
-export function registerPage(ctx) {
+export async function registerPage(ctx) {
     ctx.render(registerTemplate(createSubmitHandler(onSubmit)));
 
     async function onSubmit(data, form, event) {
@@ -40,6 +41,6 @@ export function registerPage(ctx) {
 
         await register(data.email, data.password);
 
-        ctx.page.redirect('/home');
+        ctx.page.redirect('/');
     }
 }

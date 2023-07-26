@@ -1,6 +1,6 @@
-import { html } from '../node_modules/lit-html/lit-html.js';
+import { html } from "../node_modules/lit-html/lit-html.js";
 
-export const layoutTemplate = (content, userData) => html`
+export const layoutTemplate = (userData, content) => html`
 <header>
             <h1><a class="home" href="/home">GamesPlay</a></h1>
             <nav>
@@ -23,4 +23,3 @@ export const layoutTemplate = (content, userData) => html`
             ${content}
         </main>
 `;
-

@@ -2,6 +2,7 @@ import { html } from "../../node_modules/lit-html/lit-html.js";
 import { login } from "../data/userAuth.js";
 import { createSubmitHandler } from "../utils.js";
 
+
 const loginTemplate = (onSubmit) => html`
 <section id="login-page" class="auth">
             <form id="login" @submit=${onSubmit}>
@@ -21,7 +22,7 @@ const loginTemplate = (onSubmit) => html`
         </section>
 `;
 
-export function loginPage(ctx) {
+export async function loginPage(ctx) {
     ctx.render(loginTemplate(createSubmitHandler(onSubmit)));
 
     async function onSubmit(data, form, event) {
@@ -32,6 +33,6 @@ export function loginPage(ctx) {
 
         await login(data.email, data.password);
         form.reset();
-        ctx.page.redirect('/home');
+        ctx.page.redirect('/');
     }
 }

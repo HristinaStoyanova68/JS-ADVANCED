@@ -147,7 +147,7 @@ describe('E2E tests', function () {
     });
 
     describe('Navigation bar [ 5 Points ]', () => {
-        it('logged user should see correct navigation [ 2.5 Points ]', async () => {
+        it('logged user should see correct navigation [ 2 Points ]', async () => {
             // Login user
             const data = mockData.users[0];
             await page.goto(host);
@@ -172,7 +172,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('nav >> text=Register')).to.be.false;
         });
 
-        it('guest user should see correct navigation [ 2.5 Points ]', async () => {
+        it('guest user should see correct navigation [ 2 Points ]', async () => {
             await page.goto(host);
             await page.waitForTimeout(interval);
 
@@ -183,10 +183,37 @@ describe('E2E tests', function () {
             expect(await page.isVisible('nav >> text=Login')).to.be.true;
             expect(await page.isVisible('nav >> text=Register')).to.be.true;
         });
+
+        it('user should see correct navigation after click Logout button [ 1 Points ]', async () => {
+            // Login user
+            const data = mockData.users[0];
+            await page.goto(host);
+            await page.waitForTimeout(interval);
+            await page.click('text=Login');
+            await page.waitForTimeout(interval);
+            await page.waitForSelector('form');
+
+            await page.fill('[name="email"]', data.email);
+            await page.fill('[name="password"]', data.password);
+
+            await page.click('[type="submit"]');
+            await page.waitForTimeout(interval);
+            await page.click('text=Logout');
+
+            //Test for navigation
+            await page.waitForTimeout(interval);
+
+            expect(await page.isVisible('nav >> text=All games')).to.be.true;
+            expect(await page.isVisible('nav >> text=Create Game')).to.be.false;
+            expect(await page.isVisible('nav >> text=Logout')).to.be.false;
+
+            expect(await page.isVisible('nav >> text=Login')).to.be.true;
+            expect(await page.isVisible('nav >> text=Register')).to.be.true;
+        });
     });
 
     describe('Home Page [ 20 Points ]', () => {
-        it('show empty home page [ 5 Points ]', async () => {
+        it('show empty home page [ 2.5 Points ]', async () => {
             const { get } = await handle(endpoints.catalog);
             get([]);
             await page.goto(host);
@@ -197,7 +224,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('text=No games yet')).to.be.true;
         });
 
-        it('show home page [ 5 Points ]', async () => {
+        it('show home page [ 7.5 Points ]', async () => {
             const data = mockData.catalog.slice(0, 3);
 
             await page.goto(host);
@@ -506,9 +533,9 @@ describe('E2E tests', function () {
         });
     });
 
-    describe('BONUS: Comments [ 15 Points ]', async () => {
+    describe('BONUS: Comments [ 10 Points ]', async () => {
 
-        it('Guest should not be able to see the section "Add new comment", but should be able to see the section "Comments" [ 2.5 Points ]', async () => {
+        it('Guest should not be able to see the section "Add new comment", but should be able to see the section "Comments" [ 1 Points ]', async () => {
             const data = mockData.catalog[0];
             const { get } = await handle(endpoints.details(data._id));
             get(data);
@@ -522,7 +549,7 @@ describe('E2E tests', function () {
             expect(await page.isVisible('.create-comment')).to.be.false;
         });
 
-        it('Guest should not be able to see text "No comments." (with 0 comments) [ 2.5 Points ]', async () => {
+        it('Guest should not be able to see text "No comments." (with 0 comments) [ 1 Points ]', async () => {
             const data = mockData.catalog[0];
             await page.goto(host);
 
@@ -538,7 +565,7 @@ describe('E2E tests', function () {
 
         });
 
-        it('Comments field can\'t work with empty field [ 2.5 Points ]', async () => {
+        it('Comments field can\'t work with empty field [ 2 Points ]', async () => {
             const user = mockData.users[0];
             const data = mockData.catalog[2];
 
@@ -571,7 +598,7 @@ describe('E2E tests', function () {
             expect(isCalled()).to.be.false;
         });
 
-        it('Add comment makes correct API call for logged in user [ 2.5 Points ]', async () => {
+        it('Add comment makes correct API call for logged in user [ 2 Points ]', async () => {
             const user = mockData.users[0];
             const data = mockData.catalog[2];
             const { comment } = mockData.comments[0];
@@ -612,7 +639,7 @@ describe('E2E tests', function () {
             expect(postData.comment).to.equal(comment);
         });
 
-        it('No-author can add new comment (test with 2 comments) [ 5 Points ]', async () => {
+        it('No-author can add new comment (test with 2 comments) [ 4 Points ]', async () => {
             const user = mockData.users[0];
             const data = mockData.catalog[2];
             const comments = mockData.comments;

@@ -1,6 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
-const detailstemplate = (data) => html`
+const detailstTemplate = (data) => html`
 <section id="game-details">
             <h1>Game Details</h1>
             <div class="info-section">

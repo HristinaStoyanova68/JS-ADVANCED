@@ -27,7 +27,7 @@ async function request(url, method = 'get', data) {
             return response;
         }
 
-        if (response.ok != true) {
+        if (!response.ok) {
             if (response.status == 403) {
                 deleteUserData();
             }
@@ -48,16 +48,13 @@ export async function get(url) {
 }
 
 export async function post(url, data) {
-
     return request(url, 'post', data);
 }
 
 export async function put(url, data) {
-
     return request(url, 'put', data);
 }
 
 export async function del(url) {
-
     return request(url, 'delete');
 }

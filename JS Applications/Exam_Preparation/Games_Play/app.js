@@ -11,8 +11,8 @@ import { createPage } from "./src/views/create.js";
 const boxDivElement = document.getElementById('box');
 
 page(decorateContext);
-page('/index.html', '/home');
-page('/home', homePage);
+page('/index.html', '/');
+page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/logout', onLogout);
@@ -28,12 +28,12 @@ function decorateContext(ctx, next) {
 }
 
 function renderView(content) {
-    const userdata = getUserData();
+    const userData = getUserData();
 
-    render(layoutTemplate(content, userdata), boxDivElement);
+    render(layoutTemplate(userData, content), boxDivElement);
 }
 
 function onLogout(ctx) {
     logout();
-    ctx.page.redirect('/home');
+    ctx.page.redirect('/');
 }
