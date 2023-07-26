@@ -7,6 +7,9 @@ import { loginPage } from "./src/views/login.js";
 import { registerPage } from "./src/views/register.js";
 import { logout } from "./src/data/userAuth.js";
 import { createPage } from "./src/views/create.js";
+import { catalogPage } from "./src/views/catalog.js";
+import { detailsPage } from "./src/views/details.js";
+import { editPage } from "./src/views/edit.js";
 
 const boxDivElement = document.getElementById('box');
 
@@ -17,6 +20,9 @@ page('/login', loginPage);
 page('/register', registerPage);
 page('/logout', onLogout);
 page('/create', createPage);
+page('/catalog', catalogPage);
+page('/catalog/:id', detailsPage);
+page('/catalog/:id/edit', editPage);
 
 page.start();
 
