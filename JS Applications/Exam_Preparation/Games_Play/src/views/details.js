@@ -69,6 +69,10 @@ export async function detailsPage(ctx) {
 
         const comment = data.comment;
 
+        if (comment == '') {
+            return alert('No empty field attempt!');
+        }
+
         await post(endpoints.createComment, {gameId, comment});
         form.reset();
         ctx.page.redirect(`/catalog/${gameId}`);

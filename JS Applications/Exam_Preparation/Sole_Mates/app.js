@@ -10,6 +10,7 @@ import { catalogPage } from "./src/views/catalog.js";
 import { detailsPage } from "./src/views/details.js";
 import { editPage } from "./src/views/edit.js";
 import { createPage } from "./src/views/create.js";
+import { searchPage } from "./src/views/search.js";
 
 const root = document.getElementById('wrapper');
 
@@ -24,6 +25,7 @@ page('/catalog', catalogPage);
 page('/catalog/:id', detailsPage);
 page('/catalog/:id/edit', editPage);
 page('/create', createPage);
+page('/search', searchPage);
 
 
 page.start();
