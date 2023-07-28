@@ -20,7 +20,7 @@ page('/login', loginPage);
 page('/register', registerPage);
 page('/catalog', catalogPage);
 page('/create', createPage);
-page('/details', detailsPage);
+page('/catalog/:id', detailsPage);
 
 updateNav();
 page.start();
