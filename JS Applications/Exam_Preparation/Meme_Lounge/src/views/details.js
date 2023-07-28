@@ -16,7 +16,7 @@ const detailsTemplate = (data, canEdit, onDelete) => html`
 
                     <!-- Buttons Edit/Delete should be displayed only for creator of this meme  -->
                     ${canEdit ? html`
-                    <a class="button warning" href="/catalog/${data._id}/edit/${data._id}">Edit</a>
+                    <a class="button warning" href="/catalog/${data._id}/edit">Edit</a>
                     <button class="button danger" @click=${onDelete}>Delete</button>` : nothing}                    
                 </div>
             </div>
@@ -25,10 +25,10 @@ const detailsTemplate = (data, canEdit, onDelete) => html`
 
 export async function detailsPage(ctx) {
     const memeId = ctx.params.id;
-    console.log(memeId);
+   // console.log(memeId);
 
     const data = await getMemeDetails(memeId);
-    console.log(data);
+    //console.log(data);
 
     const userData = getUserData();
     let canEdit = false;

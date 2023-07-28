@@ -1,5 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { createMeme } from "../data/meme.js";
+import { notify } from "../data/notify.js";
 import { createSubmitHandler } from "../utils.js";
 
 const createTemplate = (onSubmit) => html`
@@ -25,7 +26,7 @@ export async function createPage(ctx) {
     async function onSubmit({title, description, imageUrl}, form, event) {
 
         if ([title, description, imageUrl].some(v => v == '')) {
-            return alert('All fields are required');
+            return notify('All fields are required');
         }
 console.log('hi');
         await createMeme({title, description, imageUrl});

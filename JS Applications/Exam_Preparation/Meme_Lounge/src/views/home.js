@@ -14,5 +14,7 @@ const homeTemplate = () => html`
 </section>`;
 
 export function homePage(ctx) {
+
+    
     ctx.render(homeTemplate());
 }

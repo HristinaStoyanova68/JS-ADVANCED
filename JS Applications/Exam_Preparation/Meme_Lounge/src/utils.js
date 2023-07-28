@@ -1,5 +1,3 @@
-
-
 export function createSubmitHandler(callback) {
 
     return function (event) {

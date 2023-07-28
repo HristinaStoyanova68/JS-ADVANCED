@@ -1,4 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
+import { notify } from "../data/notify.js";
 import { register } from "../data/user.js";
 import { createSubmitHandler } from "../utils.js";
 
@@ -35,11 +36,11 @@ export function registerPage(ctx) {
     async function onSubmit({userName, email, password, repeatPass, gender}, form, event) {
 
         if ([userName, email, password, repeatPass].some(v => v == '')) {
-            return alert('All fields are required!');
+            return notify('All fields are required!');
         }
 
         if (password != repeatPass) {
-            return alert('Passwords don\'t match! Try again!');
+            return notify('Passwords don\'t match! Try again!');
         }
 
         await register(userName, email, password, gender);

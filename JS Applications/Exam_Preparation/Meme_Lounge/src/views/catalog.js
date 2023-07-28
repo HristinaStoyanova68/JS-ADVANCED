@@ -14,7 +14,7 @@ const catalogTemplate = (data) => html`
                             <img class="meme-image" alt="meme-img" src=${m.imageUrl}>
                         </div>
                         <div id="data-buttons">
-                            <a class="button" href="/catalog/${data._id}">Details</a>
+                            <a class="button" href="/catalog/${m._id}">Details</a>
                         </div>
                     </div>
                 </div>`)}

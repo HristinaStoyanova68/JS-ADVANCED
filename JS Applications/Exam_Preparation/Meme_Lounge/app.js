@@ -9,18 +9,23 @@ import { logout } from "./src/data/user.js";
 import { catalogPage } from "./src/views/catalog.js";
 import { createPage } from "./src/views/create.js";
 import { detailsPage } from "./src/views/details.js";
+import { editPage } from "./src/views/edit.js";
+import { userProfilePage } from "./src/views/userProfile.js";
 
 const mainElement = document.querySelector('main');
 
 document.getElementById('logout').addEventListener('click', onLogout);
 
 page(decorateContext);
+page('/index.html', initialRedirect);
 page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/catalog', catalogPage);
 page('/create', createPage);
 page('/catalog/:id', detailsPage);
+page('/catalog/:id/edit', editPage);
+page('/myProfile', userProfilePage);
 
 updateNav();
 page.start();
@@ -31,6 +36,17 @@ function decorateContext(ctx, next) {
     ctx.updateNav = updateNav;
 
     next();
+}
+
+function initialRedirect() {
+    const userData = getUserData();
+
+    if (userData) {
+        page.redirect('/catalog');
+    } else {
+        page.redirect('/');
+
+    }
 }
 
 function renderView(resultTemplate) {
